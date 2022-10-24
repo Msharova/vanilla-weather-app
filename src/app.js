@@ -1,5 +1,28 @@
 //changes the current info of the submited city
 
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  if (hours < 10) {
+    minutes = `0${hours}`;
+  }
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tueday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `Last updated on ${day} ${hours}:${minutes}`;
+}
+
 function displayTemp(response) {
   console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.city;
@@ -15,6 +38,9 @@ function displayTemp(response) {
   );
   document.querySelector("#pressure").innerHTML =
     response.data.temperature.pressure;
+  document.querySelector("#date").innerHTML = formatDate(
+    response.data.time * 1000
+  );
 }
 
 // API
