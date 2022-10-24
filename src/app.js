@@ -24,7 +24,6 @@ function formatDate(timestamp) {
 }
 
 function displayTemp(response) {
-  console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.city;
   document.querySelector("#description").innerHTML =
     response.data.condition.description;
@@ -41,6 +40,12 @@ function displayTemp(response) {
   document.querySelector("#date").innerHTML = formatDate(
     response.data.time * 1000
   );
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
+  iconElement.setAttribute("alt", response.data.condition.description);
 }
 
 // API
@@ -50,5 +55,4 @@ let apiEndpoint = "https://api.shecodes.io/weather/v1/current?";
 let city = "Seattle";
 let unit = "metric";
 let apiUrl = `${apiEndpoint}query=${city}&key=${apiKey}&units=${unit}`;
-console.log(apiUrl);
 axios.get(apiUrl).then(displayTemp);
