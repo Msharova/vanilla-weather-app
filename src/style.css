@@ -2,7 +2,7 @@ body {
   font-family: "Courier New", Courier, monospace;
 }
 h1 {
-  color: rgb(68, 68, 255);
+  color: #007bff;
   font-size: 40px;
   font-weight: bold;
   line-height: 30px;
@@ -16,6 +16,12 @@ li {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+a,
+#humidity-param,
+#wind-speed-param,
+#pressure-param {
+  color: #007bff;
 }
 li:first-letter {
   text-transform: capitalize;
@@ -33,7 +39,7 @@ li:first-letter {
   padding: 20px;
   border: 1px solid #4b4d52;
   border-radius: 10px;
-  border-color: rgb(109, 109, 252);
+  border-color: #007bff;
 }
 .weather-temperature img {
   margin-right: 10px;
@@ -54,4 +60,9 @@ li:first-letter {
 .temperature-sign {
   position: relative;
   top: 3px;
+}
+#humidity,
+#wind-speed,
+#pressure {
+  color: #007bff;
 }
