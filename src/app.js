@@ -49,10 +49,25 @@ function displayTemp(response) {
 }
 
 // API
+function search(city) {
+  let apiKey = "70bb37b84aobtb35a69f8896391b01b3";
+  let apiEndpoint = "https://api.shecodes.io/weather/v1/current?";
+  let unit = "metric";
+  let apiUrl = `${apiEndpoint}query=${city}&key=${apiKey}&units=${unit}`;
+  axios.get(apiUrl).then(displayTemp);
+}
 
-let apiKey = "70bb37b84aobtb35a69f8896391b01b3";
-let apiEndpoint = "https://api.shecodes.io/weather/v1/current?";
-let city = "Seattle";
-let unit = "metric";
-let apiUrl = `${apiEndpoint}query=${city}&key=${apiKey}&units=${unit}`;
-axios.get(apiUrl).then(displayTemp);
+//function that handles the city name in input form
+
+function handleSubmit(event) {
+  event.preventDefault();
+  console.log(document.querySelector("#city-input").value);
+  search(document.querySelector("#city-input").value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+
+//this function on load with random city
+
+search("Seattle");

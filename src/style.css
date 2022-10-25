@@ -17,10 +17,14 @@ li {
   margin: 0;
   padding: 0;
 }
+#humidity,
+#wind-speed,
+#pressure,
 a,
 #humidity-param,
 #wind-speed-param,
 #pressure-param {
+  font-weight: bold;
   color: #007bff;
 }
 li:first-letter {
@@ -60,9 +64,4 @@ li:first-letter {
 .temperature-sign {
   position: relative;
   top: 3px;
-}
-#humidity,
-#wind-speed,
-#pressure {
-  color: #007bff;
 }
