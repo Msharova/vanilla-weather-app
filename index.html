@@ -51,11 +51,17 @@
                 <img src="" alt="" id="icon" />
                 <div class="float-left">
                   <span id="temperature"></span>
-                  <span id="units"
-                    ><span class="celcius-link"
-                      ><span class="temperature-sign">°</span>C </span
-                    >|<span class="fahrenheit-link"
-                      ><span class="temperature-sign">°</span>F</span
+                  <span id="units">
+                    <a href="" id="celcius-link" class="active"
+                      ><span class="celcius-link">
+                        <span class="temperature-sign">°</span>C
+                      </span></a
+                    >
+                    <span id="separator">|</span
+                    ><a href="" id="fahrenheit-link"
+                      ><span class="fahrenheit-link"
+                        ><span class="temperature-sign">°</span>F</span
+                      ></a
                     ></span
                   >
                 </div>
@@ -83,11 +89,15 @@
           ><a
             href="http://github.com/Msharova/vanilla-weather-app"
             target="_blank"
+            id="source-link"
+            class="footer"
             >Open-source code</a
           >, by
           <a
             href="https://www.linkedin.com/in/maria-sharova-2b8b9b185/"
             target="_blank"
+            id="name-link"
+            class="footer"
             >Maria Sharova</a
           ></small
         >

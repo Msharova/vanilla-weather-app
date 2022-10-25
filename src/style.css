@@ -6,7 +6,7 @@ h1 {
   font-size: 40px;
   font-weight: bold;
   line-height: 30px;
-  margin-bottom: 0;
+  margin-bottom: 15px;
 }
 ul {
   margin: 0;
@@ -17,16 +17,7 @@ li {
   margin: 0;
   padding: 0;
 }
-#humidity,
-#wind-speed,
-#pressure,
-a,
-#humidity-param,
-#wind-speed-param,
-#pressure-param {
-  font-weight: bold;
-  color: #007bff;
-}
+
 li:first-letter {
   text-transform: capitalize;
 }
@@ -60,8 +51,34 @@ li:first-letter {
   position: relative;
   font-size: 15px;
   top: -28px;
+  font-weight: bold;
 }
 .temperature-sign {
   position: relative;
-  top: 3px;
+  top: 1px;
+}
+
+a {
+  color: #007bff;
+  cursor: pointer;
+}
+small .footer,
+#humidity,
+#wind-speed,
+#pressure,
+#name-link,
+#source-link,
+#humidity-param,
+#wind-speed-param,
+#pressure-param {
+  font-weight: bold;
+  color: #007bff;
+}
+
+a:hover {
+  text-decoration: none;
+}
+.active {
+  color: #4b4d52;
+  cursor: default;
 }

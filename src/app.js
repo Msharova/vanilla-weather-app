@@ -24,12 +24,12 @@ function formatDate(timestamp) {
 }
 
 function displayTemp(response) {
+  celciusTemperature = response.data.temperature.current;
   document.querySelector("#city").innerHTML = response.data.city;
   document.querySelector("#description").innerHTML =
     response.data.condition.description;
-  document.querySelector("#temperature").innerHTML = Math.round(
-    response.data.temperature.current
-  );
+  document.querySelector("#temperature").innerHTML =
+    Math.round(celciusTemperature);
   document.querySelector("#humidity").innerHTML =
     response.data.temperature.humidity;
   document.querySelector("#wind-speed").innerHTML = Math.round(
@@ -49,6 +49,7 @@ function displayTemp(response) {
 }
 
 // API
+
 function search(city) {
   let apiKey = "70bb37b84aobtb35a69f8896391b01b3";
   let apiEndpoint = "https://api.shecodes.io/weather/v1/current?";
@@ -65,8 +66,39 @@ function handleSubmit(event) {
   search(document.querySelector("#city-input").value);
 }
 
+//conversion to Fahrenheit
+
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  celciusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  document.querySelector("#temperature").innerHTML = Math.round(
+    (celciusTemperature * 9) / 5 + 32
+  );
+}
+
+//back to Celcius
+
+function displayCelciusTemp(event) {
+  event.preventDefault();
+  celciusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  document.querySelector("#temperature").innerHTML =
+    Math.round(celciusTemperature);
+}
+
+//global
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", displayCelciusTemp);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
+
+let celciusTemperature = null;
 
 //this function on load with random city
 
