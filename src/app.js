@@ -41,7 +41,7 @@ function displayTemp(response) {
   document.querySelector("#description").innerHTML =
     response.data.condition.description;
   document.querySelector("#temperature").innerHTML =
-    Math.round(celciusTemperature);
+    convertTemp(celciusTemperature);
 
   document.querySelector("#humidity").innerHTML =
     response.data.temperature.humidity;
@@ -82,15 +82,27 @@ function handleSubmit(event) {
   search(document.querySelector("#city-input").value);
 }
 
+function handleEmptySubmit() {
+  search(document.querySelector("#city").value);
+}
+
 //conversion to Fahrenheit
+
+function convertTemp(currentTemp) {
+  // if celsuis active, return celsius
+  if (celciusLink.classList.contains("active")) return Math.round(currentTemp);
+  // else return fahernheit
+  return Math.round((currentTemp * 9) / 5 + 32);
+}
 
 function displayFahrenheitTemp(event) {
   event.preventDefault();
   celciusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
-  document.querySelector("#temperature").innerHTML = Math.round(
-    (celciusTemperature * 9) / 5 + 32
-  );
+  document.querySelector("#temperature").innerHTML =
+    convertTemp(celciusTemperature);
+  //update week forecast
+  search(document.querySelector("#city").innerHTML);
 }
 
 //back to Celcius
@@ -100,7 +112,9 @@ function displayCelciusTemp(event) {
   celciusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   document.querySelector("#temperature").innerHTML =
-    Math.round(celciusTemperature);
+    convertTemp(celciusTemperature);
+  //update week forecast
+  search(document.querySelector("#city").innerHTML);
 }
 
 //global
@@ -131,7 +145,6 @@ function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
       forecastHTML += `           
@@ -147,10 +160,10 @@ function displayForecast(response) {
                   alt=""
                 />
                 <span class="weather-forecast-temp-max">${Math.round(
-                  forecastDay.temperature.maximum
+                  convertTemp(forecastDay.temperature.maximum)
                 )}°</span
                 ><span class="weather-forecast-temp-min">${Math.round(
-                  forecastDay.temperature.minimum
+                  convertTemp(forecastDay.temperature.minimum)
                 )}°</span>
               </div>            
             `;
