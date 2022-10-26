@@ -89,9 +89,9 @@ function handleEmptySubmit() {
 //conversion to Fahrenheit
 
 function convertTemp(currentTemp) {
-  // if celsuis active, return celsius
+  // if celsius active, return celsius
   if (celciusLink.classList.contains("active")) return Math.round(currentTemp);
-  // else return fahernheit
+  // else return fahrenheit
   return Math.round((currentTemp * 9) / 5 + 32);
 }
 
@@ -141,7 +141,6 @@ function formatDay(timestamp) {
 }
 
 function displayForecast(response) {
-  console.log(response.data.daily);
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;

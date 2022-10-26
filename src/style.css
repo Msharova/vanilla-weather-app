@@ -17,9 +17,25 @@ li {
   margin: 0;
   padding: 0;
 }
-
+a {
+  color: #007bff;
+  cursor: pointer;
+}
 li:first-letter {
   text-transform: capitalize;
+}
+small .footer,
+#humidity,
+#wind-speed,
+#pressure,
+#name-link,
+#source-link,
+#humidity-param,
+#wind-speed-param,
+#pressure-param,
+.weather-forecast-temp-max {
+  font-weight: bold;
+  color: #007bff;
 }
 #pressure-text {
   white-space: nowrap;
@@ -70,27 +86,6 @@ li:first-letter {
 #pressure-ul {
   padding-left: 0px;
 }
-a {
-  color: #007bff;
-  cursor: pointer;
-}
-small .footer,
-#humidity,
-#wind-speed,
-#pressure,
-#name-link,
-#source-link,
-#humidity-param,
-#wind-speed-param,
-#pressure-param,
-.weather-forecast-temp-max {
-  font-weight: bold;
-  color: #007bff;
-}
-
-a:hover {
-  text-decoration: none;
-}
 .active {
   color: #4b4d52;
   cursor: default;
@@ -106,4 +101,7 @@ a:hover {
 }
 #forecast {
   font-size: 15px;
+}
+a:hover {
+  text-decoration: none;
 }
