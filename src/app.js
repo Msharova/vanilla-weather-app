@@ -30,6 +30,7 @@ function displayTemp(response) {
     response.data.condition.description;
   document.querySelector("#temperature").innerHTML =
     Math.round(celciusTemperature);
+  displayForecast();
   document.querySelector("#humidity").innerHTML =
     response.data.temperature.humidity;
   document.querySelector("#wind-speed").innerHTML = Math.round(
@@ -100,6 +101,34 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 
 let celciusTemperature = null;
 
+//display forecast for several days
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `           
+              <div class="col-2">
+                <div class="weather-forecast-day">${day}</div>
+                <img
+                  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-night.png"
+                  width="36px"
+                  alt=""
+                />
+                <span class="weather-forecast-temp-max">18°</span
+                ><span class="weather-forecast-temp-min">12°</span>
+              </div>            
+            `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 //this function on load with random city
 
+displayForecast();
 search("Seattle");
