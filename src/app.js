@@ -1,4 +1,11 @@
-require("dotenv").config();
+function getAPIkey() {
+  if (document.URL.startsWith("https://")) {
+    apiKey = process.env.SECRET_API_KEY;
+  } else {
+    apiKey = config.SECRET_API_KEY;
+  }
+  if (apiKey == "") console.warn("No API key discovered");
+}
 
 //changes the current info of the submited city
 
@@ -28,7 +35,8 @@ function formatDate(timestamp) {
 // forecast function
 
 function getForecast(coordinates) {
-  let apiKey = process.env.SECRET_API_KEY; //config.SECRET_API_KEY;
+  console.warn(apiKey);
+  if (apiKey == "") getAPIkey();
   let unit = "metric";
   let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=${unit}`;
 
@@ -69,7 +77,8 @@ function displayTemp(response) {
 // API
 
 function search(city) {
-  let apiKey = "70bb37b84aobtb35a69f8896391b01b3";
+  console.warn(apiKey);
+  if (apiKey == "") getAPIkey();
   let apiEndpoint = "https://api.shecodes.io/weather/v1/current?";
   let unit = "metric";
   let apiUrl = `${apiEndpoint}query=${city}&key=${apiKey}&units=${unit}`;
@@ -132,6 +141,7 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 
 let celciusTemperature = null;
 
+let apiKey = "";
 //display forecast for several days
 
 function formatDay(timestamp) {
