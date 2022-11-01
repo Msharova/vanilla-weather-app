@@ -1,6 +1,6 @@
 function getAPIkey() {
   if (document.URL.startsWith("https://")) {
-    apiKey = process.env.SECRET_API_KEY;
+    apiKey = netlifyconfig.SECRET_API_KEY;
   } else {
     apiKey = config.SECRET_API_KEY;
   }
