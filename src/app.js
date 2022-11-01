@@ -1,9 +1,9 @@
 function getAPIkey() {
-  if (document.URL.startsWith("https://")) {
-    apiKey = netlifyconfig.SECRET_API_KEY;
-  } else {
-    apiKey = localconfig.SECRET_API_KEY;
-  }
+  //  if (document.URL.startsWith("https://")) {
+  //    apiKey = netlifyconfig.SECRET_API_KEY;
+  //  } else {
+  apiKey = localconfig.SECRET_API_KEY;
+  //  }
   if (apiKey == "") console.warn("No API key discovered");
 }
 
