@@ -2,7 +2,7 @@ function getAPIkey() {
   if (document.URL.startsWith("https://")) {
     apiKey = netlifyconfig.SECRET_API_KEY;
   } else {
-    apiKey = config.SECRET_API_KEY;
+    apiKey = localconfig.SECRET_API_KEY;
   }
   if (apiKey == "") console.warn("No API key discovered");
 }
