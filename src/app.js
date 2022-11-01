@@ -35,7 +35,7 @@ function formatDate(timestamp) {
 // forecast function
 
 function getForecast(coordinates) {
-  console.warn(apiKey);
+  //console.warn(apiKey);
   if (apiKey == "") getAPIkey();
   let unit = "metric";
   let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=${unit}`;
@@ -77,7 +77,7 @@ function displayTemp(response) {
 // API
 
 function search(city) {
-  console.warn(apiKey);
+  //console.warn(apiKey);
   if (apiKey == "") getAPIkey();
   let apiEndpoint = "https://api.shecodes.io/weather/v1/current?";
   let unit = "metric";
