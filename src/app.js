@@ -26,7 +26,7 @@ function formatDate(timestamp) {
 // forecast function
 
 function getForecast(coordinates) {
-  let apiKey = config.SECRET_API_KEY;
+  let apiKey = process.env.SECRET_API_KEY;
   let unit = "metric";
   let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=${unit}`;
 
