@@ -52,9 +52,8 @@ small .footer,
   margin: 30px auto;
   margin-bottom: 0;
   padding: 15px;
-  border: 1px solid #4b4d52;
+  border: 1px solid #007bff;
   border-radius: 10px;
-  border-color: #007bff;
 }
 .weather-temperature img {
   margin-right: 10px;
@@ -104,4 +103,17 @@ small .footer,
 }
 a:hover {
   text-decoration: none;
+}
+.city-information {
+  display: flex;
+  justify-content: space-between;
+}
+.btn-success {
+  width: 133px;
+  font-size: 13px;
+  padding: 9px 0px;
+}
+.search-form {
+  display: flex;
+  justify-content: space-between;
 }

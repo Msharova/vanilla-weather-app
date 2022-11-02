@@ -128,7 +128,27 @@ function displayCelciusTemp(event) {
   search(document.querySelector("#city").innerHTML);
 }
 
+//find your location
+
+function handlePosition(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiEndpoint = "https://api.shecodes.io/weather/v1/current?";
+  if (apiKey == "") getAPIkey();
+  let unit = "metric";
+  let apiUrlLocal = `${apiEndpoint}lon=${longitude}&lat=${latitude}&key=${apiKey}&units=${unit}`;
+  axios.get(apiUrlLocal).then(displayTemp);
+}
+
+function getYourLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(handlePosition); //goes to the same function as city search
+}
+
 //global
+
+let locationButton = document.querySelector(".btn-success");
+locationButton.addEventListener("click", getYourLocation);
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
@@ -159,7 +179,7 @@ function displayForecast(response) {
   forecast.forEach(function (forecastDay, index) {
     if (index < 7) {
       forecastHTML += `           
-              <div class="col">
+              <div class="col forecast-box">
                 <div class="weather-forecast-day">${formatDay(
                   forecastDay.time
                 )}</div>
