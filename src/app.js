@@ -142,7 +142,7 @@ function handlePosition(position) {
 
 function getYourLocation(event) {
   event.preventDefault();
-  navigator.geolocation.getCurrentPosition(handlePosition); //goes to the same function as city search
+  navigator.geolocation.getCurrentPosition(handlePosition);
 }
 
 //global
