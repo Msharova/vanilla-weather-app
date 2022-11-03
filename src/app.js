@@ -162,6 +162,7 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 let celciusTemperature = null;
 
 let apiKey = "";
+
 //display forecast for several days
 
 function formatDay(timestamp) {
@@ -175,11 +176,11 @@ function formatDay(timestamp) {
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class="row">`;
+  let forecastHTML = `<div class="row forecast-class">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 7) {
       forecastHTML += `           
-              <div class="col forecast-box">
+              <div class="col-1 forecast-box">
                 <div class="weather-forecast-day">${formatDay(
                   forecastDay.time
                 )}</div>
@@ -187,7 +188,7 @@ function displayForecast(response) {
                   src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
                     forecastDay.condition.icon
                   }.png"
-                  width="36px"
+                  width="38px"
                   alt=""
                 />
                 <span class="weather-forecast-temp-max">${Math.round(
