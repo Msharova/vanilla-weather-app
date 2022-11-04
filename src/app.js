@@ -208,4 +208,4 @@ function displayForecast(response) {
 
 //this function on load with random city
 
-search("Seattle");
+search("Brno");
