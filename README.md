@@ -11,4 +11,4 @@ Weather application
 ```
 
 Project page
-[https://lambent-gelato-2a0830.netlify.app/](https://lambent-gelato-2a0830.netlify.app/)
+[https://maria-sharova-weather.netlify.app/](https://maria-sharova-weather.netlify.app/)
