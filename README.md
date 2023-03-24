@@ -1,6 +1,5 @@
-## vanilla-weather-app
-
-Weather application
+# Weather application
+## This was a project during SheCodes Plus course education. This weather application was made with Vanilla JS.
 
 ```
 ./vanilla-weather-app              # project folder
@@ -10,5 +9,4 @@ Weather application
 ./vanilla-weather-app/src/style.css             # Style file
 ```
 
-Project page
-[https://maria-sharova-weather.netlify.app/](https://maria-sharova-weather.netlify.app/)
+# [Project page](https://maria-sharova-weather.netlify.app/)
